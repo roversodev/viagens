@@ -1,0 +1,235 @@
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+:root{
+    --bs-font-sans-serif: "Poppins", sans-serif;
+}
+
+
+body {
+    background-color: #000;
+    color: #eee;
+    font-size: 12px;
+}
+
+header {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    margin: auto;
+}
+
+header a {
+    color: #eee;
+    margin-right: 40px;
+    font-weight: 300;
+}
+
+.container2 {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -50px;
+    overflow: hidden;
+}
+
+.container2 .list .list-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.container2 .list .list-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+
+.container2 .list .list-item .content2 {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    padding-right: 30%;
+    width: 80%;
+    color: #eee;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.container2 .list .list-item .content2 .title {
+    font-size: 5em;
+    font-weight: 700;
+    line-height: 1.3em;
+    color: #eee;
+}
+
+.container2 .list .list-item .content2 .description {
+    font-size: 1.5em;
+}
+
+
+.container2 .list .list-item .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 60px;
+    gap: 5px;
+}
+
+
+.container2 .thumb {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    display: flex;
+    gap: 20px;
+}
+
+.container2 .thumb .thumb-item {
+    width: 135px;
+    height: 200px;
+    position: relative;
+    z-index: 3;
+}
+
+
+.container2 .thumb .thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(80%);
+}
+
+
+.container2 .thumb .content2 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+
+.container2 .thumb .content2 h3 {
+    color: #eee;
+}
+
+.container2 .arrows {
+    display: flex;
+    position: absolute;
+    bottom: 120px;
+    left: 125px;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.container2 .arrows button {
+    background-color: #eee4;
+    font-size: 1.5em;
+    transition: all .7s ease;
+}
+
+.container2 .arrows button:hover {
+    background-color: #eee;
+    color: black;
+}
+
+
+.container2.next .thumb {
+    animation: effectNextThumb 0.5s linear 1 forwards;
+}
+
+
+
+@keyframes effectNextThumb {
+    from {
+        transform: translateX(150px);
+    }
+}
+
+
+
+.container2.next .thumb .thumb-item:nth-last-child(1) {
+    animation: effectLastThumb 0.5s linear 1 forwards;
+}
+
+
+@keyframes effectLastThumb {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+
+.container2 .list .list-item:nth-last-child(1) .content2 .title,
+.container2 .list .list-item:nth-last-child(1) .content2 .description,
+.container2 .list .list-item:nth-last-child(1) .content2 .buttons {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 0.5s linear 1 forwards;
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.container2 .list .list-item:nth-last-child(1) .content2 .description {
+    animation-delay: 0.9s;
+}
+
+.container2 .list .list-item:nth-last-child(1) .content2 .buttons {
+    animation-delay: 1.3s;
+}
+
+
+.container2.next .list .list-item:nth-last-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 10px;
+    animation: showMainImage 0.5s linear 1 forwards;
+}
+
+
+@keyframes showMainImage {
+    to {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+
+.container2.back .list .list-item:nth-child(1) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: hideMainImage 0.5s linear 1 forwards;
+    z-index: 2;
+}
+
+@keyframes hideMainImage {
+    to {
+        width: 135px;
+        height: 200px;
+        border-radius: 10px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
